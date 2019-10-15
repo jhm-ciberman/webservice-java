@@ -8,6 +8,7 @@ package com.shipping.web.views;
 import java.io.PrintWriter;
 import java.util.List;
 import com.shipping.server.Model;
+import com.shipping.web.URL;
 
 /**
  *
@@ -22,7 +23,15 @@ public abstract class ShowView<M extends Model> extends LayoutView {
     }
     
     protected void content() {
+        println("<div class=\"row\">");
+        println("<div class=\"col\">");
         println("<h1>" + getTitle(model) + "</h1>");
+        println("</div>");
+        println("<div class=\"col-auto\">");
+        String editUrl = URL.generate(this.getResourceName(), "edit", this.model.getId());
+        println("<a class=\"btn btn-primary\" href=\"" + editUrl + "\">Editar</a>");
+        println("</div>");
+        println("</div>");
         
         String[] headers = getHeaders();
         String[] values = getValues(model); 
@@ -48,5 +57,7 @@ public abstract class ShowView<M extends Model> extends LayoutView {
     protected abstract String[] getValues(M model);
     
     protected abstract String getTitle(M model);
+    
+    protected abstract String getResourceName();
     
 }

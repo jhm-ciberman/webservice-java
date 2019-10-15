@@ -26,9 +26,11 @@ public class Servlet extends HttpServlet {
         this.router = new Router();
         this.router.get("/customers", "CustomerController@index");
         this.router.get("/customers/show", "CustomerController@show");
+        this.router.get("/customers/edit", "CustomerController@edit");
         
         this.router.get("/packages", "PackageController@index");
         this.router.get("/packages/show", "PackageController@show");
+        this.router.get("/packages/edit", "PackageController@edit");
     }
     
     /**
@@ -45,6 +47,11 @@ public class Servlet extends HttpServlet {
         
         Request request = new Request(originalRequest);
         Response response = this.router.handle(request);
+        
+        if (response == null) {
+            response = Response.make(404, new ErrorView("Error 404: No encontrado"));
+        }
+        
         response.render(originalResponse);
     }
 

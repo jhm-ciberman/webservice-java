@@ -19,6 +19,9 @@ public class URL {
     }
     
     public static String generate(String resource, String action) {
+        if (action.isEmpty()) {
+            return make(resource);
+        }
         return make(resource + "/" + action);
     }
     

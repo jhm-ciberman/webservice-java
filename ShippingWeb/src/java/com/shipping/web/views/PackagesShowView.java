@@ -41,13 +41,18 @@ public class PackagesShowView extends ShowView<Package> {
         return new String[]{
             model.getId().toString(),
             "$ " + model.getShippingCost(),
-            model.getStreetName() + " " + model.getStretNumber(),
+            model.getStreetName() + " " + model.getStreetNumber(),
             Integer.toString(model.getWeight()) + " g",
             Integer.toString(model.getWidth()) + " cm",
             Integer.toString(model.getHeight()) + " cm",
             Integer.toString(model.getDepth()) + " cm",
             model.getCreatedAt().toString(),
         };
+    }
+
+    @Override
+    protected String getResourceName() {
+       return "packages";
     }
     
 }

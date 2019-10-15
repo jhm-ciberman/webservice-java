@@ -40,7 +40,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
     Package.class,
     Customer.class
 })
-public class Model {
+public abstract class Model {
 
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar createdAt;

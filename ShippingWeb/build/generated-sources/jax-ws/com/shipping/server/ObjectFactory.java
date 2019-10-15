@@ -185,14 +185,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Model }
-     * 
-     */
-    public Model createModel() {
-        return new Model();
-    }
-
-    /**
      * Create an instance of {@link Customer }
      * 
      */

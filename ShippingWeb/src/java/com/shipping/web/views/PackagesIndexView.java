@@ -23,7 +23,7 @@ public class PackagesIndexView extends IndexView<Package> {
         return new String[]{
             model.getId().toString(),
             "$ " + model.getShippingCost(),
-            model.getStreetName() + " " + model.getStretNumber(),
+            model.getStreetName() + " " + model.getStreetNumber(),
             Integer.toString(model.getWeight()) + " g",
             Integer.toString(model.getWidth()) + " cm",
             Integer.toString(model.getHeight()) + " cm",

@@ -8,6 +8,7 @@ package com.shipping.web;
 import com.shipping.web.views.View;
 import java.util.List;
 import com.shipping.server.Customer;
+import com.shipping.web.views.CustomerEditView;
 import com.shipping.web.views.CustomerIndexView;
 import com.shipping.web.views.CustomerShowView;
 /**
@@ -28,5 +29,12 @@ public class CustomerController extends Controller {
         Customer customer = getWebService().showCustomer(request.getInputInt("id"));
         
         return Response.make(new CustomerShowView(customer));
+    }
+    
+    public Response edit(Request request)
+    {
+        Customer customer = getWebService().showCustomer(request.getInputInt("id"));
+        
+        return Response.make(new CustomerEditView(customer));
     }
 }

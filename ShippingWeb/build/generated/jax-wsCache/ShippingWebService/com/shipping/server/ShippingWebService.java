@@ -26,6 +26,20 @@ public interface ShippingWebService {
 
     /**
      * 
+     * @param id
+     * @return
+     *     returns com.shipping.server.Package
+     */
+    @WebMethod
+    @WebResult(name = "Package", targetNamespace = "")
+    @RequestWrapper(localName = "showPackage", targetNamespace = "http://server.shipping.com/", className = "com.shipping.server.ShowPackage")
+    @ResponseWrapper(localName = "showPackageResponse", targetNamespace = "http://server.shipping.com/", className = "com.shipping.server.ShowPackageResponse")
+    public Package showPackage(
+        @WebParam(name = "id", targetNamespace = "")
+        Integer id);
+
+    /**
+     * 
      * @param streetName
      * @param phone
      * @param streetNumber
@@ -87,6 +101,38 @@ public interface ShippingWebService {
 
     /**
      * 
+     * @param streetName
+     * @param shippingCost
+     * @param depth
+     * @param width
+     * @param weight
+     * @param stretNumber
+     * @param height
+     * @return
+     *     returns com.shipping.server.Package
+     */
+    @WebMethod
+    @WebResult(name = "Package", targetNamespace = "")
+    @RequestWrapper(localName = "storePackage", targetNamespace = "http://server.shipping.com/", className = "com.shipping.server.StorePackage")
+    @ResponseWrapper(localName = "storePackageResponse", targetNamespace = "http://server.shipping.com/", className = "com.shipping.server.StorePackageResponse")
+    public Package storePackage(
+        @WebParam(name = "shippingCost", targetNamespace = "")
+        int shippingCost,
+        @WebParam(name = "weight", targetNamespace = "")
+        int weight,
+        @WebParam(name = "streetName", targetNamespace = "")
+        String streetName,
+        @WebParam(name = "stretNumber", targetNamespace = "")
+        String stretNumber,
+        @WebParam(name = "width", targetNamespace = "")
+        int width,
+        @WebParam(name = "height", targetNamespace = "")
+        int height,
+        @WebParam(name = "depth", targetNamespace = "")
+        int depth);
+
+    /**
+     * 
      * @param id
      * @return
      *     returns com.shipping.server.Customer
@@ -119,52 +165,6 @@ public interface ShippingWebService {
     public Package updatePackage(
         @WebParam(name = "id", targetNamespace = "")
         int id,
-        @WebParam(name = "shippingCost", targetNamespace = "")
-        int shippingCost,
-        @WebParam(name = "weight", targetNamespace = "")
-        int weight,
-        @WebParam(name = "streetName", targetNamespace = "")
-        String streetName,
-        @WebParam(name = "stretNumber", targetNamespace = "")
-        String stretNumber,
-        @WebParam(name = "width", targetNamespace = "")
-        int width,
-        @WebParam(name = "height", targetNamespace = "")
-        int height,
-        @WebParam(name = "depth", targetNamespace = "")
-        int depth);
-
-    /**
-     * 
-     * @param id
-     * @return
-     *     returns com.shipping.server.Package
-     */
-    @WebMethod
-    @WebResult(name = "Package", targetNamespace = "")
-    @RequestWrapper(localName = "showPackage", targetNamespace = "http://server.shipping.com/", className = "com.shipping.server.ShowPackage")
-    @ResponseWrapper(localName = "showPackageResponse", targetNamespace = "http://server.shipping.com/", className = "com.shipping.server.ShowPackageResponse")
-    public Package showPackage(
-        @WebParam(name = "id", targetNamespace = "")
-        Integer id);
-
-    /**
-     * 
-     * @param streetName
-     * @param shippingCost
-     * @param depth
-     * @param width
-     * @param weight
-     * @param stretNumber
-     * @param height
-     * @return
-     *     returns com.shipping.server.Package
-     */
-    @WebMethod
-    @WebResult(name = "Package", targetNamespace = "")
-    @RequestWrapper(localName = "storePackage", targetNamespace = "http://server.shipping.com/", className = "com.shipping.server.StorePackage")
-    @ResponseWrapper(localName = "storePackageResponse", targetNamespace = "http://server.shipping.com/", className = "com.shipping.server.StorePackageResponse")
-    public Package storePackage(
         @WebParam(name = "shippingCost", targetNamespace = "")
         int shippingCost,
         @WebParam(name = "weight", targetNamespace = "")

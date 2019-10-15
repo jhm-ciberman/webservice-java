@@ -17,7 +17,7 @@ public class Package extends Model {
     
     private String streetName;
     
-    private String stretNumber;
+    private String streetNumber;
     
     private int width;
     
@@ -25,11 +25,11 @@ public class Package extends Model {
     
     private int depth;
 
-    public Package(int shippingCost, int weight, String streetName, String stretNumber, int width, int height, int depth) {
+    public Package(int shippingCost, int weight, String streetName, String streetNumber, int width, int height, int depth) {
         this.shippingCost = shippingCost;
         this.weight = weight;
         this.streetName = streetName;
-        this.stretNumber = stretNumber;
+        this.streetNumber = streetNumber;
         this.width = width;
         this.height = height;
         this.depth = depth;
@@ -63,12 +63,12 @@ public class Package extends Model {
         this.streetName = streetName;
     }
 
-    public String getStretNumber() {
-        return stretNumber;
+    public String getStreetNumber() {
+        return streetNumber;
     }
 
-    public void setStretNumber(String stretNumber) {
-        this.stretNumber = stretNumber;
+    public void setStreetNumber(String stretNumber) {
+        this.streetNumber = stretNumber;
     }
 
     public int getWidth() {

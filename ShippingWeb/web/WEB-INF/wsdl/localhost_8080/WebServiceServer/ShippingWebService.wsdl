@@ -4,6 +4,12 @@
 <xsd:import namespace="http://server.shipping.com/" schemaLocation="http://localhost:8080/WebServiceServer/ShippingWebService?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="showPackage">
+<part name="parameters" element="tns:showPackage"/>
+</message>
+<message name="showPackageResponse">
+<part name="parameters" element="tns:showPackageResponse"/>
+</message>
 <message name="storeCustomer">
 <part name="parameters" element="tns:storeCustomer"/>
 </message>
@@ -16,6 +22,12 @@
 <message name="updateCustomerResponse">
 <part name="parameters" element="tns:updateCustomerResponse"/>
 </message>
+<message name="storePackage">
+<part name="parameters" element="tns:storePackage"/>
+</message>
+<message name="storePackageResponse">
+<part name="parameters" element="tns:storePackageResponse"/>
+</message>
 <message name="showCustomer">
 <part name="parameters" element="tns:showCustomer"/>
 </message>
@@ -27,18 +39,6 @@
 </message>
 <message name="updatePackageResponse">
 <part name="parameters" element="tns:updatePackageResponse"/>
-</message>
-<message name="showPackage">
-<part name="parameters" element="tns:showPackage"/>
-</message>
-<message name="showPackageResponse">
-<part name="parameters" element="tns:showPackageResponse"/>
-</message>
-<message name="storePackage">
-<part name="parameters" element="tns:storePackage"/>
-</message>
-<message name="storePackageResponse">
-<part name="parameters" element="tns:storePackageResponse"/>
 </message>
 <message name="indexCustomers">
 <part name="parameters" element="tns:indexCustomers"/>
@@ -53,6 +53,10 @@
 <part name="parameters" element="tns:indexPackagesResponse"/>
 </message>
 <portType name="ShippingWebService">
+<operation name="showPackage">
+<input wsam:Action="http://server.shipping.com/ShippingWebService/showPackageRequest" message="tns:showPackage"/>
+<output wsam:Action="http://server.shipping.com/ShippingWebService/showPackageResponse" message="tns:showPackageResponse"/>
+</operation>
 <operation name="storeCustomer">
 <input wsam:Action="http://server.shipping.com/ShippingWebService/storeCustomerRequest" message="tns:storeCustomer"/>
 <output wsam:Action="http://server.shipping.com/ShippingWebService/storeCustomerResponse" message="tns:storeCustomerResponse"/>
@@ -61,6 +65,10 @@
 <input wsam:Action="http://server.shipping.com/ShippingWebService/updateCustomerRequest" message="tns:updateCustomer"/>
 <output wsam:Action="http://server.shipping.com/ShippingWebService/updateCustomerResponse" message="tns:updateCustomerResponse"/>
 </operation>
+<operation name="storePackage">
+<input wsam:Action="http://server.shipping.com/ShippingWebService/storePackageRequest" message="tns:storePackage"/>
+<output wsam:Action="http://server.shipping.com/ShippingWebService/storePackageResponse" message="tns:storePackageResponse"/>
+</operation>
 <operation name="showCustomer">
 <input wsam:Action="http://server.shipping.com/ShippingWebService/showCustomerRequest" message="tns:showCustomer"/>
 <output wsam:Action="http://server.shipping.com/ShippingWebService/showCustomerResponse" message="tns:showCustomerResponse"/>
@@ -68,14 +76,6 @@
 <operation name="updatePackage">
 <input wsam:Action="http://server.shipping.com/ShippingWebService/updatePackageRequest" message="tns:updatePackage"/>
 <output wsam:Action="http://server.shipping.com/ShippingWebService/updatePackageResponse" message="tns:updatePackageResponse"/>
-</operation>
-<operation name="showPackage">
-<input wsam:Action="http://server.shipping.com/ShippingWebService/showPackageRequest" message="tns:showPackage"/>
-<output wsam:Action="http://server.shipping.com/ShippingWebService/showPackageResponse" message="tns:showPackageResponse"/>
-</operation>
-<operation name="storePackage">
-<input wsam:Action="http://server.shipping.com/ShippingWebService/storePackageRequest" message="tns:storePackage"/>
-<output wsam:Action="http://server.shipping.com/ShippingWebService/storePackageResponse" message="tns:storePackageResponse"/>
 </operation>
 <operation name="indexCustomers">
 <input wsam:Action="http://server.shipping.com/ShippingWebService/indexCustomersRequest" message="tns:indexCustomers"/>
@@ -88,6 +88,15 @@
 </portType>
 <binding name="ShippingWebServicePortBinding" type="tns:ShippingWebService">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="showPackage">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="storeCustomer">
 <soap:operation soapAction=""/>
 <input>
@@ -106,6 +115,15 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="storePackage">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="showCustomer">
 <soap:operation soapAction=""/>
 <input>
@@ -116,24 +134,6 @@
 </output>
 </operation>
 <operation name="updatePackage">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="showPackage">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="storePackage">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

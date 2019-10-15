@@ -43,7 +43,7 @@ public class Router {
                 return route.callControllerAction(request);
             }
         }
-        return Response.make(404, new ErrorView("Error 404: No encontrado"));
+        return null;
     }
 
     protected boolean match(Route route, Request request) {

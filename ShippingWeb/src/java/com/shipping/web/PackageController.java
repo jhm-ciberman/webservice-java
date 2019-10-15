@@ -9,6 +9,7 @@ import com.shipping.web.views.View;
 import com.shipping.web.views.PackagesIndexView;
 import java.util.List;
 import com.shipping.server.Package;
+import com.shipping.web.views.PackagesEditView;
 import com.shipping.web.views.PackagesShowView;
 /**
  *
@@ -28,5 +29,12 @@ public class PackageController extends Controller {
         Package pack = getWebService().showPackage(request.getInputInt("id"));
         
         return Response.make(new PackagesShowView(pack));
+    }
+    
+    public Response edit(Request request)
+    {
+        Package pack = getWebService().showPackage(request.getInputInt("id"));
+        
+        return Response.make(new PackagesEditView(pack));
     }
 }

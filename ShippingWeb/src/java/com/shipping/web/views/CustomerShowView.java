@@ -46,4 +46,8 @@ public class CustomerShowView extends ShowView<Customer> {
         };
     }
     
+    @Override
+    protected String getResourceName() {
+       return "customers";
+    }
 }

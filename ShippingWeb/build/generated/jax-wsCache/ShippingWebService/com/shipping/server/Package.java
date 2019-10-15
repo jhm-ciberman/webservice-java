@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="height" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="shippingCost" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="streetName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="stretNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="streetNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="weight" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="width" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
@@ -37,7 +37,7 @@ import javax.xml.bind.annotation.XmlType;
     "height",
     "shippingCost",
     "streetName",
-    "stretNumber",
+    "streetNumber",
     "weight",
     "width"
 })
@@ -49,7 +49,7 @@ public class Package
     protected int height;
     protected int shippingCost;
     protected String streetName;
-    protected String stretNumber;
+    protected String streetNumber;
     protected int weight;
     protected int width;
 
@@ -126,27 +126,27 @@ public class Package
     }
 
     /**
-     * Obtiene el valor de la propiedad stretNumber.
+     * Obtiene el valor de la propiedad streetNumber.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getStretNumber() {
-        return stretNumber;
+    public String getStreetNumber() {
+        return streetNumber;
     }
 
     /**
-     * Define el valor de la propiedad stretNumber.
+     * Define el valor de la propiedad streetNumber.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setStretNumber(String value) {
-        this.stretNumber = value;
+    public void setStreetNumber(String value) {
+        this.streetNumber = value;
     }
 
     /**
