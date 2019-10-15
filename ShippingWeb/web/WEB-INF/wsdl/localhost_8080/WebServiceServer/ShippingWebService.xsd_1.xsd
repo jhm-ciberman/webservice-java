@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.3 (RELEASE-2.4.3-ad3323c; 2019-01-21T17:46:06+0000) JAXWS-RI/2.3.2 JAXWS-API/2.3.2 JAXB-RI/2.3.2 JAXB-API/2.3.2 git-revision#unknown. --><xs:schema xmlns:tns="http://server.shipping.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://server.shipping.com/">
+
+<xs:element name="indexCustomers" type="tns:indexCustomers"/>
+
+<xs:element name="indexCustomersResponse" type="tns:indexCustomersResponse"/>
+
+<xs:element name="indexPackages" type="tns:indexPackages"/>
+
+<xs:element name="indexPackagesResponse" type="tns:indexPackagesResponse"/>
+
+<xs:element name="showCustomer" type="tns:showCustomer"/>
+
+<xs:element name="showCustomerResponse" type="tns:showCustomerResponse"/>
+
+<xs:element name="showPackage" type="tns:showPackage"/>
+
+<xs:element name="showPackageResponse" type="tns:showPackageResponse"/>
+
+<xs:element name="storeCustomer" type="tns:storeCustomer"/>
+
+<xs:element name="storeCustomerResponse" type="tns:storeCustomerResponse"/>
+
+<xs:element name="storePackage" type="tns:storePackage"/>
+
+<xs:element name="storePackageResponse" type="tns:storePackageResponse"/>
+
+<xs:element name="updateCustomer" type="tns:updateCustomer"/>
+
+<xs:element name="updateCustomerResponse" type="tns:updateCustomerResponse"/>
+
+<xs:element name="updatePackage" type="tns:updatePackage"/>
+
+<xs:element name="updatePackageResponse" type="tns:updatePackageResponse"/>
+
+<xs:complexType name="updatePackage">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="shippingCost" type="xs:int"/>
+<xs:element name="weight" type="xs:int"/>
+<xs:element name="streetName" type="xs:string" minOccurs="0"/>
+<xs:element name="stretNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="width" type="xs:int"/>
+<xs:element name="height" type="xs:int"/>
+<xs:element name="depth" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updatePackageResponse">
+<xs:sequence>
+<xs:element name="Package" type="tns:package" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="package">
+<xs:complexContent>
+<xs:extension base="tns:model">
+<xs:sequence>
+<xs:element name="depth" type="xs:int"/>
+<xs:element name="height" type="xs:int"/>
+<xs:element name="shippingCost" type="xs:int"/>
+<xs:element name="streetName" type="xs:string" minOccurs="0"/>
+<xs:element name="stretNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="weight" type="xs:int"/>
+<xs:element name="width" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="model">
+<xs:sequence>
+<xs:element name="createdAt" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="updatedAt" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="showPackage">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="showPackageResponse">
+<xs:sequence>
+<xs:element name="Package" type="tns:package" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="storePackage">
+<xs:sequence>
+<xs:element name="shippingCost" type="xs:int"/>
+<xs:element name="weight" type="xs:int"/>
+<xs:element name="streetName" type="xs:string" minOccurs="0"/>
+<xs:element name="stretNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="width" type="xs:int"/>
+<xs:element name="height" type="xs:int"/>
+<xs:element name="depth" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="storePackageResponse">
+<xs:sequence>
+<xs:element name="Package" type="tns:package" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="showCustomer">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="showCustomerResponse">
+<xs:sequence>
+<xs:element name="Customer" type="tns:customer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="customer">
+<xs:complexContent>
+<xs:extension base="tns:model">
+<xs:sequence>
+<xs:element name="dni" type="xs:string" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="phone" type="xs:string" minOccurs="0"/>
+<xs:element name="streetName" type="xs:string" minOccurs="0"/>
+<xs:element name="streetNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="surname" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="indexCustomers">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="indexCustomersResponse">
+<xs:sequence>
+<xs:element name="Customer" type="tns:customer" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="indexPackages">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="indexPackagesResponse">
+<xs:sequence>
+<xs:element name="Package" type="tns:package" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateCustomer">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="surname" type="xs:string" minOccurs="0"/>
+<xs:element name="phone" type="xs:string" minOccurs="0"/>
+<xs:element name="dni" type="xs:string" minOccurs="0"/>
+<xs:element name="streetName" type="xs:string" minOccurs="0"/>
+<xs:element name="streetNumber" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateCustomerResponse">
+<xs:sequence>
+<xs:element name="Customer" type="tns:customer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="storeCustomer">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="surname" type="xs:string" minOccurs="0"/>
+<xs:element name="phone" type="xs:string" minOccurs="0"/>
+<xs:element name="dni" type="xs:string" minOccurs="0"/>
+<xs:element name="streetName" type="xs:string" minOccurs="0"/>
+<xs:element name="streetNumber" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="storeCustomerResponse">
+<xs:sequence>
+<xs:element name="Customer" type="tns:customer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
