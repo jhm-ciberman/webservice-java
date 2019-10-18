@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.shipping.web;
 
 import com.shipping.web.views.View;
@@ -26,11 +21,17 @@ public class Servlet extends HttpServlet {
         this.router = new Router();
         this.router.get("/customers", "CustomerController@index");
         this.router.get("/customers/show", "CustomerController@show");
+        this.router.get("/customers/create", "CustomerController@create");
         this.router.get("/customers/edit", "CustomerController@edit");
+        this.router.post("/customers/edit", "CustomerController@update");
+        this.router.post("/customers", "CustomerController@store");
         
         this.router.get("/packages", "PackageController@index");
         this.router.get("/packages/show", "PackageController@show");
+        this.router.get("/packages/create", "PackageController@create");
         this.router.get("/packages/edit", "PackageController@edit");
+        this.router.post("/packages/edit", "PackageController@update");
+        this.router.post("/packages", "PackageController@store");
     }
     
     /**

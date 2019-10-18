@@ -5,7 +5,6 @@
  */
 package com.shipping.web;
 
-import com.shipping.web.views.View;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.logging.Level;
@@ -78,8 +77,10 @@ public class Route {
                     }
                 }
             }
-        } catch (SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
+        } catch (SecurityException | IllegalAccessException | IllegalArgumentException ex) {
             Logger.getLogger(Route.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvocationTargetException ex) {
+            Logger.getLogger(Route.class.getName()).log(Level.SEVERE, null, ex.getCause());
         }
         return null;
     }

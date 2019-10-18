@@ -12,9 +12,9 @@ import com.shipping.web.URL;
  *
  * @author jhmci
  */
-public class CustomerEditView extends EditView<Customer> {
+public class CustomersEditView extends EditView<Customer> {
 
-    public CustomerEditView(Customer model) {
+    public CustomersEditView(Customer model) {
         super(model);
     }
 
@@ -28,6 +28,7 @@ public class CustomerEditView extends EditView<Customer> {
         return new String[]{
             this.text("Nombre", "name", model.getName()),
             this.text("Apellido", "surname", model.getSurname()),
+            this.text("DNI", "dni", model.getDni()),
             this.text("Teléfono", "phone", model.getPhone()),
             this.text("Calle nombre", "street_name", model.getStreetName()),
             this.text("Calle número", "street_number", model.getStreetNumber()),
@@ -36,7 +37,7 @@ public class CustomerEditView extends EditView<Customer> {
 
     @Override
     protected String formAction() {
-        return URL.generate("customers", "", this.model.getId());
+        return URL.generate("customers", "edit", this.model.getId());
     }
 
 }

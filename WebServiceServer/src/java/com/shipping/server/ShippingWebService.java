@@ -84,7 +84,7 @@ public class ShippingWebService {
             pack.setShippingCost(shippingCost);
             pack.setWeight(weight);
             pack.setStreetName(streetName);
-            pack.setStretNumber(stretNumber);
+            pack.setStreetNumber(stretNumber);
             pack.setWidth(width);
             pack.setWidth(width);
             pack.setHeight(height);

@@ -38,6 +38,6 @@ public class PackagesEditView extends EditView<Package> {
 
     @Override
     protected String formAction() {
-        return URL.generate("customers", "", this.model.getId());
+        return URL.generate("packages", "edit", this.model.getId());
     }
 }

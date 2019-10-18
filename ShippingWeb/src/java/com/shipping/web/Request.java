@@ -20,7 +20,7 @@ public class Request {
     
     public Request(HttpServletRequest request) {
         this.originalRequest = request;
-        this.inputs = this.originalRequest.getParameterMap();    
+        this.inputs = this.originalRequest.getParameterMap();
     }
     
     protected String getRoute() {

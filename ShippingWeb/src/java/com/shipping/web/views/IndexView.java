@@ -22,7 +22,15 @@ public abstract class IndexView<M extends Model> extends LayoutView {
     }
     
     protected void content() {
+        println("<div class=\"row\">");
+        println("<div class=\"col\">");
         println("<h1>" + getTitle() + "</h1>");
+        println("</div>");
+        println("<div class=\"col-auto\">");
+        String createUrl = URL.generate(this.getResourceName(), "create");
+        println("<a class=\"btn btn-primary\" href=\"" + createUrl + "\">Nuevo</a>");
+        println("</div>");
+        println("</div>");
         
         println("<div class=\"card shadow border-0\">");
         println("<table class=\"table table-hover\">");

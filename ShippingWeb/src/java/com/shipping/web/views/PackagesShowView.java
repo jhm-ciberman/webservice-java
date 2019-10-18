@@ -27,7 +27,7 @@ public class PackagesShowView extends ShowView<Package> {
         return new String[] {
             "Id",
             "Costo de envio",
-            "Calle",
+            "Dirección",
             "Peso",
             "Ancho",
             "Alto",

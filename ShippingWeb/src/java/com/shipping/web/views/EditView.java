@@ -62,7 +62,7 @@ public abstract class EditView<M extends Model> extends LayoutView {
     
         
     protected String number(String label, String name, Integer value) {
-        return this.makeInput(label, "number", name, Integer.toString(value));
+        return this.makeInput(label, "number", name, value == null ? "" : Integer.toString(value));
     }
     
     protected String text(String label, String name, String value) {
@@ -75,7 +75,7 @@ public abstract class EditView<M extends Model> extends LayoutView {
                 + "id=\"" + name + "\" "
                 + "name=\"" + name + "\" "
                 + "type=\"" + type + "\" "
-                + "value=\"" + value + "\">");
+                + "value=\"" + (value == null ? "" : value) + "\">");
     }
     
     

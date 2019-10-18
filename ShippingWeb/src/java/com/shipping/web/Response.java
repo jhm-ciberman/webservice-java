@@ -27,16 +27,26 @@ public class Response {
     
     protected int status = 200;
     
+    public Response() {}
+    
     public Response(View view) {
         this.setView(view);
+    }
+    
+    public static Response make() {
+        return new Response();
     }
     
     public static Response make(View view) {
         return new Response(view);
     }
     
+    public static Response redirect(String location) {
+        return make().setRedirect(location);
+    }
+    
     public static Response make(int status, View view) {
-        return (new Response(view)).setStatus(status);
+        return make().setStatus(status);
     }
     
     public Response setView(View view) {
@@ -50,7 +60,7 @@ public class Response {
     }
     
     public Response setRedirect(String location) {
-        return this.setStatus(203).setHeader("Location", location);
+        return this.setStatus(303).setHeader("Location", location);
     }
     
     public Response setHeader(String header, String value) {

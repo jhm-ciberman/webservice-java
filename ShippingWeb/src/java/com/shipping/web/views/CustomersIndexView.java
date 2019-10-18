@@ -12,9 +12,9 @@ import com.shipping.server.Customer;
  *
  * @author jhmci
  */
-public class CustomerIndexView extends IndexView<Customer> {
+public class CustomersIndexView extends IndexView<Customer> {
 
-    public CustomerIndexView(List<Customer> models) {
+    public CustomersIndexView(List<Customer> models) {
         super(models);
     }
 
@@ -24,6 +24,7 @@ public class CustomerIndexView extends IndexView<Customer> {
             model.getId().toString(),
             model.getName(),
             model.getSurname(),
+            model.getDni(),
             model.getPhone(),
             model.getStreetName() + " " + model.getStreetNumber(),
             model.getCreatedAt().toString(),
@@ -36,8 +37,9 @@ public class CustomerIndexView extends IndexView<Customer> {
             "Id",
             "Nombre",
             "Apellido",
+            "DNI",
             "Teléfono",
-            "Calle",
+            "Dirección",
             "Fecha de creación",
         };
     }

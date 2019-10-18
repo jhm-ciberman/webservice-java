@@ -11,9 +11,9 @@ import com.shipping.server.Customer;
  *
  * @author jhmci
  */
-public class CustomerShowView extends ShowView<Customer> {
+public class CustomersShowView extends ShowView<Customer> {
 
-    public CustomerShowView(Customer model) {
+    public CustomersShowView(Customer model) {
         super(model);
     }
 
@@ -28,8 +28,9 @@ public class CustomerShowView extends ShowView<Customer> {
             "Id",
             "Nombre",
             "Apellido",
+            "DNI",
             "Teléfono",
-            "Calle",
+            "Dirección",
             "Fecha de creación",
         };
     }
@@ -40,6 +41,7 @@ public class CustomerShowView extends ShowView<Customer> {
             model.getId().toString(),
             model.getName(),
             model.getSurname(),
+            model.getDni(),
             model.getPhone(),
             model.getStreetName() + " " + model.getStreetNumber(),
             model.getCreatedAt().toString(),

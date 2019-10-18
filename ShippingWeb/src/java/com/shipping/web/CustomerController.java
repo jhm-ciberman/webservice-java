@@ -5,12 +5,12 @@
  */
 package com.shipping.web;
 
-import com.shipping.web.views.View;
 import java.util.List;
 import com.shipping.server.Customer;
-import com.shipping.web.views.CustomerEditView;
-import com.shipping.web.views.CustomerIndexView;
-import com.shipping.web.views.CustomerShowView;
+import com.shipping.web.views.CustomersCreateView;
+import com.shipping.web.views.CustomersEditView;
+import com.shipping.web.views.CustomersIndexView;
+import com.shipping.web.views.CustomersShowView;
 /**
  *
  * @author jhmci
@@ -21,20 +21,55 @@ public class CustomerController extends Controller {
     {
         List<Customer> customers = getWebService().indexCustomers();
         
-        return Response.make(new CustomerIndexView(customers));
+        return Response.make(new CustomersIndexView(customers));
     }
 
     public Response show(Request request)
     {
         Customer customer = getWebService().showCustomer(request.getInputInt("id"));
         
-        return Response.make(new CustomerShowView(customer));
+        return Response.make(new CustomersShowView(customer));
     }
     
     public Response edit(Request request)
     {
         Customer customer = getWebService().showCustomer(request.getInputInt("id"));
         
-        return Response.make(new CustomerEditView(customer));
+        return Response.make(new CustomersEditView(customer));
     }
+    
+    public Response create(Request request)
+    {
+        return Response.make(new CustomersCreateView());
+    }
+    
+    public Response store(Request request)
+    {
+        Customer customer = getWebService().storeCustomer(
+            request.getInputString("name"),
+            request.getInputString("surname"),
+            request.getInputString("phone"),
+            request.getInputString("dni"),
+            request.getInputString("street_name"),
+            request.getInputString("street_number")
+        );
+        
+        return Response.redirect(URL.generate("customers", "show", customer.getId()));
+    }
+    
+    public Response update(Request request)
+    {
+        Customer customer = getWebService().updateCustomer(
+            request.getInputInt("id"),
+            request.getInputString("name"),
+            request.getInputString("surname"),
+            request.getInputString("phone"),
+            request.getInputString("dni"),
+            request.getInputString("street_name"),
+            request.getInputString("street_number")
+        );
+            
+        return Response.redirect(URL.generate("customers", "show", customer.getId()));
+    }
+    
 }

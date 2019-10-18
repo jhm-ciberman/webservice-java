@@ -37,7 +37,7 @@ public class PackagesIndexView extends IndexView<Package> {
         return new String[]{
             "Id",
             "Costo de envio",
-            "Calle",
+            "Dirección",
             "Peso",
             "Ancho",
             "Alto",
